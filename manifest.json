@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "get_page_infomation_from_url",
+  "version": "1.0",
+  "description": "",
+  "browser_action": {
+    "default_icon": {
+      "16": "resources/page-16.png",
+      "32": "resources/page-32.png"
+    },
+    "default_title": "get_page_infomation",
+    "default_popup": "html/main.html"
+  },
+  "permissions": [
+    "<all_urls>",
+    "tabs"
+  ],
+  "web_accessible_resources": [
+    "resources/frog.jpg",
+    "resources/turtle.jpg",
+    "resources/snake.jpg"
+  ]
+}
