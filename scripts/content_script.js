@@ -4,7 +4,30 @@ class HtmlElement {
     this._html = document.getElementsByTagName("html")[0];
     this.html = this._html.outerHTML;
     this.title = this._html.getElementsByTagName("title")[0].innerHTML;
+    this._html
   }
+}
+
+//画面キャプチャクラス
+class Capture {
+  constructor() {
+    this.canvas = document.createElement("canvas");
+    this.setAttributeCanvas();
+    this.ctx = this.canvas.getContext("2d");
+    this.ctx.drawWindow(window._content, 0, 0, width, height, "rgb(0,0,0)");
+    this.appendpage();
+  }
+
+  setAttributeCanvas = () => {
+    this.canvas.setAttribute("height", window._content.document.height);
+    this.canvas.setAttribute("width", window._content.document.width);
+  }
+  appendpage = () => {
+    body = document.getElementsByTagName("body")[0];
+    body.append("test");
+    console.log(this.canvas);
+  }
+
 }
 
 //ダウンロードに関するクラス
@@ -36,5 +59,6 @@ class Download {
 function main() {
   var html = new HtmlElement();
   var download = new Download(html.html, html.title);
+  var capture = new Capture();
 }
 setTimeout(main, 5000);
