@@ -1,26 +1,19 @@
+//アクティブなタブで実行するスクリプト
 function excecute_content_script() {
   browser.tabs
     .executeScript({ file: "/scripts/content_script.js" });
 }
 
-function logTabs(tabs) {
-  for (let tab of tabs) {
-    // tab.url requires the `tabs` permission
-    console.log(tab.url);
-  }
-}
-
-function onError(error) {
-  console.log(`Error: ${error}`);
-}
-
-
-
+//ツールバーに表示されたボタンを取得
 const f1 = document.getElementById("function1");
 
+//ボタンクリック時すべてのタブでcontent_script.jsを実行
 f1.addEventListener("click", (e) => {
-  excecute_content_script();
-  var querying = browser.tabs.query({});
-  querying.then(logTabs, onError);
+  // excecute_content_script();
+  var querying = browser.tabs.query({}, tabs => {
+    for (let tab of tabs) {
+      browser.tabs.update(tab.id, { active: true }, excecute_content_script());
+    }
+  });
 });
 
