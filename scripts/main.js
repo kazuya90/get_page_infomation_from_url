@@ -14,15 +14,26 @@ function downloadScreenshot(dataUri, title) {
 
 
 //ツールバーに表示されたボタンを取得
-const f1 = document.getElementById("function1");
+const dom_button = document.getElementById("dom_button");
 
 //ボタンクリック時すべてのタブでcontent_script.jsを実行
-f1.addEventListener("click", (e) => {
+dom_button.addEventListener("click", (e) => {
   // excecute_content_script();
   var querying = browser.tabs.query({}, tabs => {
     for (let tab of tabs) {
       //コンテンツスクリプトを実行
-      browser.tabs.update(tab.id, { active: true }, excecute_content_script());
+      browser.tabs.update(tab.id, { active: true }, excecute_content_script("./content_script.js"));
+    }
+  });
+});
+
+//画面キャプチャ
+const capture_button = document.getElementById("capture_button");
+capture_button.addEventListener("click", (e) => {
+  // excecute_content_script();
+  var querying = browser.tabs.query({}, tabs => {
+    for (let tab of tabs) {
+
       //画面をキャプチャしてダウンロード
       //高さを取得する
       browser.tabs.executeScript(tab.id, {
@@ -42,5 +53,4 @@ f1.addEventListener("click", (e) => {
     }
   });
 });
-
 
