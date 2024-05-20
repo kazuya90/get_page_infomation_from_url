@@ -15,9 +15,5 @@
     "<all_urls>",
     "tabs"
   ],
-  "web_accessible_resources": [
-    "resources/frog.jpg",
-    "resources/turtle.jpg",
-    "resources/snake.jpg"
-  ]
+  "web_accessible_resources": []
 }
