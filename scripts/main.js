@@ -54,3 +54,14 @@ capture_button.addEventListener("click", (e) => {
   });
 });
 
+//ストレージテスト
+function gotMonster(item) {
+  console.log(`${item.test}`);
+  console.log(`${item.name}`);
+}
+
+var test = { "test": "test", "name": "taro" };
+
+browser.storage.local.set(test)
+
+browser.storage.local.get(test).then(gotMonster)

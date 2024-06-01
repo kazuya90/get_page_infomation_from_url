@@ -13,7 +13,8 @@
   },
   "permissions": [
     "<all_urls>",
-    "tabs"
+    "tabs",
+    "storage"
   ],
   "web_accessible_resources": []
 }
