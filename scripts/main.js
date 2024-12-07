@@ -60,8 +60,23 @@ function gotMonster(item) {
   console.log(`${item.name}`);
 }
 
-var test = { "test": "test", "name": "taro" };
+//ツールバーに表示されたボタンを取得
+const save_button = document.getElementById("save");
 
-browser.storage.local.set(test)
+save_button.addEventListener("click", (e) => {
+  var text = document.getElementById("entry").value;
+  var test = { "test": "test", "name": text };
+  browser.storage.local.set(test)
+  browser.storage.local.get(test).then(gotMonster)
+});
 
-browser.storage.local.get(test).then(gotMonster)
+
+//fetchテスト
+async function getHTML() {
+  const html = await fetch("https://www.javadrive.jp/javascript/form/index1.html");
+  console.log(html);
+}
+
+getHTML();
+
+
