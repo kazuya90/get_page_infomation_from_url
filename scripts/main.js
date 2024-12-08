@@ -23,7 +23,6 @@ dom_button.addEventListener("click", (e) => {
   });
 });
 
-
 //アクティブなタブのhtmlを取得
 function gethtml(url) {
   var xhr = new XMLHttpRequest();
