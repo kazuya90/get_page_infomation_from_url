@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "get_page_infomation_from_url",
-  "version": "1.0",
+  "version": "1.1",
   "description": "",
   "browser_action": {
     "default_icon": {
